@@ -1,19 +1,14 @@
-const express = require('express');
+import express from 'express';
+
+const PORT = 8000;
 const app = express();
-const port = 3000;
 
 // Settings
-app.set('port', process.env.PORT || 5000)
+app.set('port', process.env.PORT || 8000)
 
-// Middleware JSON
-app.use(express.json());
+// Init sever
+app.listen(PORT);
+console.log('Server running on port: ', PORT)
 
 // Routes
-app.get('/', (req, res) => {
-  res.send('Message from backend!');
-});
-
-// Init server
-app.listen(app.get('port'), () => {
-  console.log(`Server on http://localhost:${app.get('port')}`);
-});
+app.get('/scouts', (req, res) => { res.send('Without scouts yet') })
